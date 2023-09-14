@@ -42,3 +42,7 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
   }
 
 }
+
+final lettersProvider = StateNotifierProvider<LetterNotifier, List<Letter>> ((ref) {
+  return LetterNotifier();
+});
