@@ -3,38 +3,42 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 enum LetterState {notInWord, inWordWrongPlace, inWordRightPlace}
 
 class Letter {
-  const Letter({required this.letter, required this.letterState, required this.id});
+  const Letter({required this.letterString, required this.letterState});
 
-  final int id;
-  final String letter;
+  final String letterString;
   final LetterState letterState;
 
-  Letter copyWith({int? id, String? letter, LetterState? letterState}) {
+  Letter copyWith({int? id, String? letterString, LetterState? letterState}) {
     return Letter(
-      id: id ?? this.id,
-      letter: letter ?? this.letter,
+      letterString: letterString ?? this.letterString,
       letterState: letterState ?? this.letterState,
     );
   }
 }
 
 class LetterNotifier extends StateNotifier<List<Letter>> {
-  LetterNotifier(): super(List.generate(30, (index) =>
-          Letter(
-              letter: " ",
-              letterState: LetterState.notInWord,
-              id: index)
-      )
+  LetterNotifier(): super([]
   );
 
   int guessCount = 0;
+  int lettersWritten = 0;
 
-  void addLetter(Letter letter) {
-    state = [...state, letter];
+  void clearList() {
+    state = [];
+  }
+
+  void addLetter(String letterText) {
+    state = [...state, Letter(
+      letterState: LetterState.notInWord,
+      letterString: letterText,
+    )
+    ];
+    lettersWritten += 1;
   }
 
   void removeLetter() {
     state.removeLast();
+    lettersWritten -= 1;
   }
 
   void guessMade() {
