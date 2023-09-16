@@ -20,9 +20,22 @@ class WordleInput extends StatelessWidget {
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 4, vertical: 5),
           decoration: BoxDecoration(
-            color: Colors.grey[800],
+            color: Colors.grey[900],
+            border: Border.all(
+              color: Color(0xFF424242),
+              width: 2,
+            )
           ),
-          child: Text(index >= letterList.length ? " " : letterList[index].letterString),
+          child: Center(
+            child: Text(
+              index >= letterList.length ? " " : letterList[index].letterString,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         );
       },
     );
