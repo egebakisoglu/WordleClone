@@ -37,7 +37,7 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
   }
 
   void removeLetter() {
-    state.removeLast();
+    state = state.sublist(0, state.length - 1);
     lettersWritten -= 1;
   }
 
