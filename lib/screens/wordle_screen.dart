@@ -18,6 +18,26 @@ class WordleScreen extends ConsumerWidget{
     List<Letter> letterList = ref.watch(lettersProvider);
     
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[900],
+        foregroundColor: Colors.grey[700],
+        centerTitle: true,
+        elevation: 8,
+        leading: Icon(Icons.info_outline),
+        actions: [
+          Icon(Icons.leaderboard_outlined),
+          SizedBox(width: 20),
+          Icon(Icons.settings),
+          SizedBox(width: 20),
+        ],
+        title: Text(
+          "WORDLE",
+          style: TextStyle(
+            fontSize: 40,
+            color: Colors.white,
+          ),
+        ),
+      ),
       backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Column(
