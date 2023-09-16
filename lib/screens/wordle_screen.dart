@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wordle/models/wordle_model.dart';
+import 'package:wordle/widgets/wordle_input.dart';
 import 'package:wordle/widgets/wordle_keyboard.dart';
 
 class WordleScreen extends ConsumerWidget{
@@ -21,19 +22,12 @@ class WordleScreen extends ConsumerWidget{
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                for (final letter in letterList)
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[800],
-                    ),
-                    child: Text(letter.letterString),
-                  ),
-              ],
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                child: WordleInput(letterList: letterList),
+              ),
             ),
-
             WordleKeyboard(
               keyboardList: keyboardList,
               ref: ref,
