@@ -77,17 +77,19 @@ class KeyboardKey extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 2, vertical: 4),
-        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 20),
-        height: 55,
+        padding: EdgeInsets.symmetric(horizontal: 12),
+        height: 60,
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(3),
         ),
-        child: Text(keyText,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
+        child: Center(
+          child: Text(keyText,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
