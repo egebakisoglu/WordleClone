@@ -14,39 +14,42 @@ class WordleKeyboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (var item in keyboardList[0])
-              KeyboardKey(
-                keyText: item,
-                ref: ref,
-              )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (var item in keyboardList[1])
-              KeyboardKey(
-                keyText: item,
-                ref: ref,
-              )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (var item in keyboardList[2])
-              KeyboardKey(
-                keyText: item,
-                ref: ref,
-              )
-          ],
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.only(bottom: 30),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (var item in keyboardList[0])
+                KeyboardKey(
+                  keyText: item,
+                  ref: ref,
+                )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (var item in keyboardList[1])
+                KeyboardKey(
+                  keyText: item,
+                  ref: ref,
+                )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (var item in keyboardList[2])
+                KeyboardKey(
+                  keyText: item,
+                  ref: ref,
+                )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -66,7 +69,7 @@ class KeyboardKey extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (keyText == "DEL"){
-          ref.read(lettersProvider.notifier).clearList();
+          ref.read(lettersProvider.notifier).removeLetter();
         }
         else {
           ref.read(lettersProvider.notifier).addLetter(keyText);
