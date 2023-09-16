@@ -44,7 +44,7 @@ class WordleScreen extends ConsumerWidget{
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: WordleInput(letterList: letterList),
               ),
             ),
