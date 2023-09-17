@@ -20,7 +20,11 @@ class WordleInput extends StatelessWidget {
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 4, vertical: 5),
           decoration: BoxDecoration(
-            color: Colors.grey[900],
+            color: letterList.length > index
+                ? letterList[index].letterState == LetterState.inWordRightPlace
+                    ?Colors.green
+                    :Colors.grey[700]
+                : Colors.grey[900],
             border: Border.all(
               color: Color(0xFF424242),
               width: 2,

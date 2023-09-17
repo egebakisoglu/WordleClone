@@ -75,7 +75,12 @@ class KeyboardKey extends StatelessWidget {
           ref.read(lettersProvider.notifier).guessMade();
         }
         else {
-          ref.read(lettersProvider.notifier).addLetter(keyText);
+          ref.read(lettersProvider.notifier).addLetter(
+              Letter(
+                  letterState: LetterState.initial,
+                  letterString: keyText,
+              )
+          );
         }
       },
       child: Container(
