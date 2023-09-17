@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wordle/data/word_list.dart';
 
 enum LetterState {initial, notInWord, inWord, correctLetter}
+enum GameState {playing, won, lost}
 
 class Letter {
   const Letter({required this.letterString, required this.letterState});
@@ -39,6 +40,7 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
 
   String randomWord = fiveLetterWords[Random().nextInt(fiveLetterWords.length)].toUpperCase();
   int guessCount = 1;
+  GameState gameState = GameState.playing;
 
   void clearList() {
     state = [];
@@ -91,11 +93,15 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
         addLetter(newAddedWord[i]);
       }
 
-      if(inPlaceWords == 5){
-        print('game won');
+      guessCount++;
+
+      if (guessCount > 6){
+        gameState = GameState.lost;
       }
 
-      guessCount++;
+      if(inPlaceWords == 5){
+        gameState = GameState.won;
+      }
     }
     else {
       print("Not a valid 5 letter word");

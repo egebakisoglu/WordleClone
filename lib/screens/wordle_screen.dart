@@ -48,10 +48,25 @@ class WordleScreen extends ConsumerWidget{
                 child: WordleInput(letterList: letterList),
               ),
             ),
-            WordleKeyboard(
-              keyboardList: keyboardList,
-              ref: ref,
-            ),
+            if (ref.read(lettersProvider.notifier).gameState == GameState.playing)
+              WordleKeyboard(
+                keyboardList: keyboardList,
+                ref: ref,
+              )
+            else if (ref.read(lettersProvider.notifier).gameState == GameState.won)
+              Text(
+                "You Won! The word was ${ref.read(lettersProvider.notifier).randomWord}",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              )
+            else
+              Text(
+                "You lost! The word was ${ref.read(lettersProvider.notifier).randomWord}",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
           ],
         ),
       )
