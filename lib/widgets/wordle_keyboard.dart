@@ -71,6 +71,9 @@ class KeyboardKey extends StatelessWidget {
         if (keyText == "DEL"){
           ref.read(lettersProvider.notifier).removeLetter();
         }
+        else if (keyText == "ENTER"){
+          ref.read(lettersProvider.notifier).guessMade();
+        }
         else {
           ref.read(lettersProvider.notifier).addLetter(keyText);
         }

@@ -20,25 +20,26 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
   LetterNotifier(): super([]
   );
 
-  int guessCount = 0;
-  int lettersWritten = 0;
+  int guessCount = 1;
 
   void clearList() {
     state = [];
   }
 
   void addLetter(String letterText) {
-    state = [...state, Letter(
-      letterState: LetterState.notInWord,
-      letterString: letterText,
-    )
-    ];
-    lettersWritten += 1;
+    if (state.length < guessCount * 5) {
+      state = [...state, Letter(
+        letterState: LetterState.notInWord,
+        letterString: letterText,
+      )
+      ];
+    }
   }
 
   void removeLetter() {
-    state = state.sublist(0, state.length - 1);
-    lettersWritten -= 1;
+    if (state.length <= guessCount * 5 && state.length > guessCount * 5 - 5) {
+      state = state.sublist(0, state.length - 1);
+    }
   }
 
   void guessMade() {
