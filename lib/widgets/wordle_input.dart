@@ -21,12 +21,8 @@ class WordleInput extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 4, vertical: 5),
           decoration: BoxDecoration(
             color: letterList.length > index
-                ? letterList[index].letterState == LetterState.inWordRightPlace
-                    ? Colors.green
-                    : letterList[index].letterState == LetterState.inWordWrongPlace
-                        ? Colors.yellow[800]
-                        : Colors.grey[700]
-                : Colors.grey[900],
+                ? letterList[index].backgroundColor
+                : Colors.transparent,
             border: Border.all(
               color: Color(0xFF424242),
               width: 2,
