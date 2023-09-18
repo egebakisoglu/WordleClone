@@ -5,11 +5,13 @@ import 'package:wordle/models/wordle_model.dart';
 class WordleKeyboard extends StatelessWidget {
   final List<List<String>> keyboardList;
   final WidgetRef ref;
+  final List<Letter> letterList;
 
   const WordleKeyboard({
     super.key,
     required this.keyboardList,
     required this.ref,
+    required this.letterList,
   });
 
   @override
@@ -25,6 +27,7 @@ class WordleKeyboard extends StatelessWidget {
                 KeyboardKey(
                   keyText: item,
                   ref: ref,
+                  letterList: letterList,
                 )
             ],
           ),
@@ -35,6 +38,7 @@ class WordleKeyboard extends StatelessWidget {
                 KeyboardKey(
                   keyText: item,
                   ref: ref,
+                  letterList: letterList,
                 )
             ],
           ),
@@ -45,6 +49,7 @@ class WordleKeyboard extends StatelessWidget {
                 KeyboardKey(
                   keyText: item,
                   ref: ref,
+                  letterList: letterList,
                 )
             ],
           ),
@@ -57,12 +62,24 @@ class WordleKeyboard extends StatelessWidget {
 class KeyboardKey extends StatelessWidget {
   final String keyText;
   final WidgetRef ref;
+  final List<Letter> letterList;
 
   const KeyboardKey({
     super.key,
     required this.keyText,
     required this.ref,
+    required this.letterList,
   });
+
+  Color findLetterColor() {
+    for (var letter in letterList) {
+      if (letter.letterString == keyText &&
+          letter.letterState != LetterState.initial) {
+        return letter.backgroundColor;
+      }
+    }
+    return Colors.grey;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +105,7 @@ class KeyboardKey extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12),
         height: 60,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: findLetterColor(),
           borderRadius: BorderRadius.circular(3),
         ),
         child: Center(

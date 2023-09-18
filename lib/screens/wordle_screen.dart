@@ -52,6 +52,7 @@ class WordleScreen extends ConsumerWidget{
               WordleKeyboard(
                 keyboardList: keyboardList,
                 ref: ref,
+                letterList: letterList,
               )
             else if (ref.read(lettersProvider.notifier).gameState == GameState.won)
               Text(
