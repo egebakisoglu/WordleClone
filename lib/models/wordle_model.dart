@@ -54,7 +54,6 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
       state = [...state, newLetter
       ];
     }
-    print(randomWord);
   }
 
   void removeLetter() {

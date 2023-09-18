@@ -23,14 +23,14 @@ class WordleScreen extends ConsumerWidget{
         foregroundColor: Colors.grey[700],
         centerTitle: true,
         elevation: 8,
-        leading: Icon(Icons.info_outline),
-        actions: [
+        leading: const Icon(Icons.info_outline),
+        actions: const [
           Icon(Icons.leaderboard_outlined),
           SizedBox(width: 20),
           Icon(Icons.settings),
           SizedBox(width: 20),
         ],
-        title: Text(
+        title: const Text(
           "WORDLE",
           style: TextStyle(
             fontSize: 40,
@@ -44,7 +44,7 @@ class WordleScreen extends ConsumerWidget{
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: WordleInput(letterList: letterList),
               ),
             ),
@@ -68,12 +68,12 @@ class WordleScreen extends ConsumerWidget{
     return Container(
       height: 250,
       width: 350,
-      margin: EdgeInsets.only(bottom: 80),
-      padding: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.only(bottom: 80),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         color: Colors.grey[600],
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black,
             blurRadius: 10,
@@ -86,14 +86,14 @@ class WordleScreen extends ConsumerWidget{
         children: [
           Text(
             "You $result",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 40,
             ),
           ),
           Text(
             "The word was ${ref.read(lettersProvider.notifier).randomWord}",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 32,
             ),
@@ -101,12 +101,12 @@ class WordleScreen extends ConsumerWidget{
           InkWell(
             onTap: ref.read(lettersProvider.notifier).playAgain,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              margin: EdgeInsets.only(top: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              margin: const EdgeInsets.only(top: 25),
               decoration: BoxDecoration(
                 color: Colors.grey[800],
                 borderRadius: BorderRadius.circular(8),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black,
                     blurRadius: 5,
@@ -115,7 +115,7 @@ class WordleScreen extends ConsumerWidget{
                   )
                 ]
               ),
-              child: Text(
+              child: const Text(
                 "Play again?",
                 style: TextStyle(
                   color: Colors.white,

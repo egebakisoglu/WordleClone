@@ -17,7 +17,7 @@ class WordleKeyboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 80),
+      margin: const EdgeInsets.only(bottom: 80),
       child: Column(
         children: [
           Row(
@@ -101,8 +101,8 @@ class KeyboardKey extends StatelessWidget {
         }
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 2, vertical: 4),
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         height: 60,
         decoration: BoxDecoration(
           color: findLetterColor(),
@@ -110,7 +110,7 @@ class KeyboardKey extends StatelessWidget {
         ),
         child: Center(
           child: Text(keyText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,

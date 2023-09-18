@@ -18,20 +18,20 @@ class WordleInput extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 4, vertical: 5),
+          margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
           decoration: BoxDecoration(
             color: letterList.length > index
                 ? letterList[index].backgroundColor
                 : Colors.transparent,
             border: Border.all(
-              color: Color(0xFF424242),
+              color: const Color(0xFF424242),
               width: 2,
             )
           ),
           child: Center(
             child: Text(
               index >= letterList.length ? " " : letterList[index].letterString,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
