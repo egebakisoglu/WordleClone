@@ -42,8 +42,11 @@ class LetterNotifier extends StateNotifier<List<Letter>> {
   int guessCount = 1;
   GameState gameState = GameState.playing;
 
-  void clearList() {
+  void playAgain() {
     state = [];
+    guessCount = 1;
+    gameState = GameState.playing;
+    randomWord = fiveLetterWords[Random().nextInt(fiveLetterWords.length)].toUpperCase();
   }
 
   void addLetter(Letter newLetter) {
